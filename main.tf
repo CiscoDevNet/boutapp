@@ -20,6 +20,7 @@ resource helm_release otelcollector {
   name       = "boutapp"
   namespace = "default"
   chart = "https://prathjan.github.io/helm-chart/boutapp-0.2.0.tgz"
+  timeout = 600
 }
 
 provider "helm" {
