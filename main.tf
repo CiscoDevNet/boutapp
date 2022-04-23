@@ -15,11 +15,18 @@ variable "org" {
 variable "ikswsname" {
   type = string
 }
+variable "appns" {
+  type = string
+}
+variable "appchart" {
+  type = string
+}
 
-resource helm_release otelcollector {
-  name       = "boutapp"
-  namespace = "default"
-  chart = "https://prathjan.github.io/helm-chart/boutapp-0.2.0.tgz"
+resource helm_release byoapp {
+  name       = "byoapp"
+  namespace = var.appns
+  chart = var.appchart
+  #chart = "https://prathjan.github.io/helm-chart/boutapp-0.2.0.tgz"
   timeout = 600
 }
 
